@@ -23,8 +23,13 @@ x_new=np.arange(x_data[0],x_data[len(x_data)-1],0.5)
 #calculate cubicv spline
 #x_new=np.arange(x_data)
 
-cubic=CubicSpline(x_data,z_data[0],bc_type='natural')(x_new)
+#for iterator in range(len(z_data)):
+#CALCULATE SPOLINE FOR DATA SET
+for iterator in range(len(z_data)):
+    cubic_iterator=CubicSpline(x_data,z_data[0],bc_type='natural')(x_new)
+    cubic_spline=np.stack(cubic_iterator)
 
+plt.plot(x_new,cubic,'o', label=f'Test Profile')
 
 fig=plt.figure()
 ax=fig.add_subplot(111,projection="3d")
