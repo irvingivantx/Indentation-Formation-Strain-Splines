@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import csv
 
-from scipy.interpolate import splrep
+from scipy.interpolate import CubicSpline
 
 print("hello")
 
@@ -18,11 +18,15 @@ z_data=np.genfromtxt(Data,delimiter=",",dtype=float)
 
 #Startup coordinates for visual x - footage and z - deflections and y will be the channel numbers
 xx,yy=np.meshgrid(x_data,y_data)
+print(x_data[0])
+x_new=np.arange(x_data[0],x_data[len(x_data)-1],0.5)
+#calculate cubicv spline
+#x_new=np.arange(x_data)
+
+cubic=CubicSpline(x_data,z_data[0],bc_type='natural')(x_new)
 
 
-
-print(len(z_data[0]))
 fig=plt.figure()
 ax=fig.add_subplot(111,projection="3d")
-ax.plot_surface(xx,yy,z_data)
+ax.plot_surface(xx,yy,z_data,cmap="plasma", linewidth=0, antialiased=False, alpha=0.5)
 plt.show()
