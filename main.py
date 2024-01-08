@@ -17,7 +17,12 @@ Data=open('/Users/Irving/Documents/Mesh_Deflections_Joint 004220 - Dent 000187.c
 z_data=np.genfromtxt(Data,delimiter=",",dtype=float)
 
 #Startup coordinates for visual x - footage and z - deflections and y will be the channel numbers
-xx,zz,yy=np.meshgrid(x_data,z_data,y_data)
-print(xx)
 xx,yy=np.meshgrid(x_data,y_data)
-print(yy)
+
+
+
+print(len(z_data[0]))
+fig=plt.figure()
+ax=fig.add_subplot(111,projection="3d")
+ax.plot_surface(xx,yy,z_data)
+plt.show()
