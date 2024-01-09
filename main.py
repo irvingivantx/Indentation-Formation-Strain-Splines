@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import csv
 
-from scipy.interpolate import CubicSpline
+from scipy.interpolate import CubicSpline, splrep, BSpline
 
 print("hello")
 
@@ -28,11 +28,12 @@ x_new=np.arange(x_data[0],x_data[len(x_data)-1],0.01)
 
 #CALCULATE SPLINE FOR DATA SET
 for iterator in range(len(z_data)):
-    cubic_iterator=CubicSpline(x_data,z_data[iterator],bc_type='natural')(x_new)
+    spline_coefficients=splrep(x_data,z_data[iterator],k=3,s=0.1)
+    spline=BSpline(*spline_coefficients,extrapolate=True)(x_new)
     if(iterator==0):
-        cubic_final=cubic_iterator
+        cubic_final=spline
     else:
-        cubic_final=np.vstack((cubic_final,cubic_iterator))
+        cubic_final=np.vstack((cubic_final,spline))
 
 #mesh new coordinates for calculated spline and new x values
 x_spline,y_spline=np.meshgrid(x_new,y_data)
