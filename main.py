@@ -37,9 +37,10 @@ for iterator in range(len(z_data)):
 
 #mesh new coordinates for calculated spline and new x values
 x_spline,y_spline=np.meshgrid(x_new,y_data)
-print(cubic_final)
 fig=plt.figure()
-ax=fig.add_subplot(111,projection="3d")
 
+ax = plt.axes(projection ='3d')
 ax.plot_surface(x_spline,y_spline,cubic_final,cmap="plasma", linewidth=0, antialiased=False, alpha=0.5)
+
+
 plt.show()
