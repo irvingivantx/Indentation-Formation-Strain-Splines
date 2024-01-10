@@ -3,7 +3,7 @@ import numpy as np
 import csv
 
 from scipy.interpolate import CubicSpline, splrep, BSpline
-
+print("irving is fancy")
 print("hello")
 
 #adding x and y footage and channel numbers
