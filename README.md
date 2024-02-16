@@ -7,6 +7,7 @@ Blogpost Here:
 https://irvingivantx.notion.site/Indentation-Formation-Strain-Spline-e651f65bba8d4ec9a9898e3cd1c1ae42?pvs=4
 
 References
+
 1.**API** **RECOMMENDED** **PRACTICE** **1183 - Assessment and Management of Pipeline Dents**
 
 2.**Noronha, D. Jr, Martins, R., Jacob, B., and Souza, E. (2005). “The Use of B-Splines in the Assessment of Strain Levels Associated with Plain Dents,” Rio Pipeline Conference & Exposition 2005, paper no. IBP 1245_05. Page 3.**
